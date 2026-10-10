@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+@font-face {
+  font-family: 'Arcade Classic';
+  src: url('/font/ARCADECLASSIC.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f5f3ea;
+    color: #0a0a0a;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    selection-background-color: #e8ff00;
+    selection-color: #0a0a0a;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  /* Neo-Brutalist Dark Mode Canvas: Deep Midnight Squid Ink */
+  html.dark body {
+    background-color: #0b132b;
+    color: #f0f4fc;
+  }
+
+  /* Main Headings and Subheadings: strictly using ARCADECLASSIC from the font folder */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Arcade Classic', monospace, sans-serif !important;
+    font-weight: 400 !important;
+    font-synthesis: none !important;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    word-spacing: 0.22em;
+    color: #0a0a0a;
+  }
+
+  html.dark h1,
+  html.dark h2,
+  html.dark h3,
+  html.dark h4,
+  html.dark h5,
+  html.dark h6 {
+    color: #f0f4fc;
+  }
+}
+
+.font-arcade,
+.font-display,
+.font-pixel,
+.font-codedex {
+  font-family: 'Arcade Classic', monospace, sans-serif !important;
+  font-weight: 400 !important;
+  font-synthesis: none !important;
+  letter-spacing: 0.06em;
+  word-spacing: 0.22em;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+}
+
+.font-sans {
+  font-family: 'Archivo', system-ui, sans-serif !important;
+}
+
+/* Custom Neo-Brutalist Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f3ea;
+  border-left: 3px solid #0a0a0a;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0b132b;
+  border-left: 3px solid #1c2541;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e8ff00;
+  border: 3px solid #0a0a0a;
+  box-shadow: 2px 2px 0px #0a0a0a;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #e8ff00;
+  border: 3px solid #0b132b;
+  box-shadow: 2px 2px 0px #0b132b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5e8a;
+}
+
+/* Neo-Brutalist Core Components & Helpers */
+@layer components {
+  /* Dotted Halftone Grain Pattern */
+  .bg-grain {
+    background-color: #f5f3ea;
+    background-image: radial-gradient(#0a0a0a 1.1px, transparent 1.1px);
+    background-size: 7px 7px;
+  }
+
+  html.dark .bg-grain {
+    background-color: #0b132b;
+    background-image: radial-gradient(rgba(94, 200, 255, 0.25) 1.2px, transparent 1.2px);
+  }
+
+  .bg-grain-acid {
+    background-color: #e8ff00;
+    background-image: radial-gradient(#0a0a0a 1.1px, transparent 1.1px);
+    background-size: 7px 7px;
+  }
+
+  .bg-grain-dark {
+    background-color: #0b132b;
+    background-image: radial-gradient(rgba(240, 244, 252, 0.2) 1.1px, transparent 1.1px);
+    background-size: 7px 7px;
+  }
+
+  /* Press-into-paper Button (6px offset) */
+  .btn-press {
+    @apply relative inline-flex items-center justify-center font-display font-black uppercase tracking-wider text-xs sm:text-sm select-none border-3 border-ink transition-all duration-100;
+    box-shadow: 6px 6px 0 0 #000000;
+  }
+
+  .btn-press:hover:not(:disabled) {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 0 #000000;
+  }
+
+  .btn-press:active:not(:disabled) {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 0 #000000;
+  }
+
+  /* Press-into-paper Button with Acid Shadow */
+  .btn-press-acid-shadow {
+    @apply relative inline-flex items-center justify-center font-display font-black uppercase tracking-wider text-xs sm:text-sm select-none border-3 border-ink transition-all duration-100;
+    box-shadow: 6px 6px 0 0 #e8ff00;
+  }
+
+  .btn-press-acid-shadow:hover:not(:disabled) {
+    transform: translate(6px, 6px);
+    box-shadow: 0 0 0 0 #e8ff00;
+  }
+
+  /* Small Press Button (4px offset) */
+  .btn-press-sm {
+    @apply relative inline-flex items-center justify-center font-display font-extrabold uppercase tracking-wider text-xs select-none border-2 sm:border-3 border-ink transition-all duration-100;
+    box-shadow: 4px 4px 0 0 #000000;
+  }
+
+  .btn-press-sm:hover:not(:disabled) {
+    transform: translate(4px, 4px);
+    box-shadow: 0 0 0 0 #000000;
+  }
+
+  /* Large Press Button (10px offset) */
+  .btn-press-lg {
+    @apply relative inline-flex items-center justify-center font-display font-black uppercase tracking-wider text-sm sm:text-base select-none border-3 sm:border-4 border-ink transition-all duration-100;
+    box-shadow: 10px 10px 0 0 #000000;
+  }
+
+  .btn-press-lg:hover:not(:disabled) {
+    transform: translate(10px, 10px);
+    box-shadow: 0 0 0 0 #000000;
+  }
+
+  /* Eyebrow Tracker */
+  .eyebrow-tracker {
+    @apply font-mono font-bold uppercase tracking-[0.18em] text-[11px] sm:text-xs text-ink;
+  }
+}
+
+/* ==========================================================================
+   PURE HIGH-CONTRAST THEME (White elements for Black theme, Black for White theme)
+   ========================================================================== */
+
+/* Main Canvas Surface */
+html.dark .bg-paper {
+  background-color: #0b132b !important;
+}
+
+/* Card & Elevated Panels in Dark Mode */
+html.dark .bg-white {
+  background-color: #141f36 !important;
+  border-color: #ffffff !important;
+  color: #f0f4fc !important;
+}
+
+/* Text Hierarchy: Crisp High-Contrast for Midnight Theme */
+html.dark .text-ink {
+  color: #f0f4fc !important;
+}
+
+html.dark .text-ink\/90 {
+  color: rgba(240, 244, 252, 0.95) !important;
+}
+
+html.dark .text-ink\/80 {
+  color: rgba(240, 244, 252, 0.85) !important;
+}
+
+html.dark .text-ink\/70 {
+  color: rgba(240, 244, 252, 0.75) !important;
+}
+
+html.dark .text-ink\/60 {
+  color: rgba(240, 244, 252, 0.65) !important;
+}
+
+html.dark .text-ink\/50,
+html.dark .text-ink\/40,
+html.dark .text-ink\/30 {
+  color: rgba(240, 244, 252, 0.5) !important;
+}
+
+/* Input Fields & Placeholders in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #0d1728 !important;
+  border-color: #ffffff !important;
+  color: #f0f4fc !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder,
+html.dark ::placeholder {
+  color: rgba(240, 244, 252, 0.5) !important;
+  opacity: 1 !important;
+}
+
+html.dark .placeholder\:text-ink\/40::placeholder,
+html.dark .placeholder\:text-ink\/50::placeholder,
+html.dark .placeholder\:text-ink\/60::placeholder {
+  color: rgba(240, 244, 252, 0.5) !important;
+  opacity: 1 !important;
+}
+
+/* Crisp High-Contrast White Borders for Neo-Brutalism in Dark Mode */
+html.dark .border-ink {
+  border-color: #ffffff !important;
+}
+
+html.dark .border-ink\/10,
+html.dark .border-ink\/15,
+html.dark .border-ink\/20 {
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+html.dark .border-ink\/30,
+html.dark .border-ink\/40 {
+  border-color: rgba(255, 255, 255, 0.45) !important;
+}
+
+/* Accent Buttons & Badges */
+html.dark .bg-acid {
+  background-color: #e8ff00 !important;
+  color: #0a0a0a !important;
+}
+
+html.dark .bg-acid * {
+  color: #0a0a0a !important;
+}
+
+html.dark .bg-sky {
+  background-color: #5ec8ff !important;
+  color: #0a0a0a !important;
+}
+
+html.dark .bg-sky * {
+  color: #0a0a0a !important;
+}
+
+html.dark .bg-pink {
+  background-color: #ff5e8a !important;
+  color: #ffffff !important;
+}
+
+/* Dark Primary / Header Banners */
+html.dark .bg-ink {
+  background-color: #060b17 !important;
+  color: #f0f4fc !important;
+  border-color: #ffffff !important;
+}
+
+html.dark .text-paper {
+  color: #f0f4fc !important;
+}
+
+/* Visible Solid Neo-Brutalist Hard 3D Shadows in Dark Mode */
+html.dark .shadow-hard-xs {
+  box-shadow: 3px 3px 0 0 #000000 !important;
+}
+
+html.dark .shadow-hard-sm {
+  box-shadow: 4px 4px 0 0 #000000 !important;
+}
+
+html.dark .shadow-hard {
+  box-shadow: 6px 6px 0 0 #000000 !important;
+}
+
+html.dark .shadow-hard-lg {
+  box-shadow: 10px 10px 0 0 #000000 !important;
+}
+
+html.dark .shadow-hard-xl {
+  box-shadow: 14px 14px 0 0 #000000 !important;
+}
+
+html.dark .btn-press {
+  box-shadow: 5px 5px 0 0 #000000 !important;
+}
+
+html.dark .btn-press-sm {
+  box-shadow: 3px 3px 0 0 #000000 !important;
+}
+
+html.dark .btn-press-lg {
+  box-shadow: 8px 8px 0 0 #000000 !important;
+}
+
+html.dark .btn-press:hover:not(:disabled),
+html.dark .btn-press:active:not(:disabled),
+html.dark .btn-press-sm:hover:not(:disabled),
+html.dark .btn-press-sm:active:not(:disabled),
+html.dark .btn-press-lg:hover:not(:disabled),
+html.dark .btn-press-lg:active:not(:disabled) {
+  box-shadow: 0 0 0 0 #000000 !important;
+  transform: translate(2px, 2px) !important;
+}
+
+/* Accessible Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
