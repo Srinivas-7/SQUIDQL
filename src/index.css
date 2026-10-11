@@ -283,16 +283,8 @@ html.dark .bg-acid {
   color: #0a0a0a !important;
 }
 
-html.dark .bg-acid * {
-  color: #0a0a0a !important;
-}
-
 html.dark .bg-sky {
   background-color: #5ec8ff !important;
-  color: #0a0a0a !important;
-}
-
-html.dark .bg-sky * {
   color: #0a0a0a !important;
 }
 
@@ -301,15 +293,22 @@ html.dark .bg-pink {
   color: #ffffff !important;
 }
 
-/* Dark Primary / Header Banners */
+/* Dark Primary / Header Banners & Buttons */
 html.dark .bg-ink {
   background-color: #060b17 !important;
   color: #f0f4fc !important;
   border-color: #ffffff !important;
 }
 
-html.dark .text-paper {
+html.dark .bg-ink *,
+html.dark .text-paper,
+html.dark .text-white {
   color: #f0f4fc !important;
+}
+
+html.dark .bg-ink .text-acid,
+html.dark [class*="text-acid"] {
+  color: #e8ff00 !important;
 }
 
 /* Visible Solid Neo-Brutalist Hard 3D Shadows in Dark Mode */
