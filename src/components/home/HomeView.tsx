@@ -683,22 +683,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-3 border-ink bg-grain">
         <div className="max-w-4xl mx-auto">
           
-          <div className="relative bg-ink text-paper dark:bg-[#141f36] dark:text-[#f0f4fc] border-3 sm:border-4 border-ink dark:border-white p-8 sm:p-14 shadow-hard-lg dark:shadow-[8px_8px_0_0_#e8ff00] text-center space-y-6 overflow-hidden">
+          <div className="relative bg-[#060b17] text-white dark:bg-[#141f36] dark:text-[#f0f4fc] border-3 sm:border-4 border-ink dark:border-white p-8 sm:p-14 shadow-hard-lg dark:shadow-[8px_8px_0_0_#e8ff00] text-center space-y-6 overflow-hidden">
             
             {/* Corner Decorative Grid Accent */}
             <div className="absolute top-0 right-0 w-24 h-24 bg-acid/10 border-b-2 border-l-2 border-ink dark:border-white/20 transform rotate-45 translate-x-12 -translate-y-12 pointer-events-none" />
 
             {/* Badge */}
             <div 
-              className="inline-flex items-center gap-2 bg-acid border-2 border-ink px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs"
-              style={{ color: '#0a0a0a' }}
+              className="inline-flex items-center gap-2 bg-acid border-2 border-ink px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs !text-[#0a0a0a]"
             >
-              <Sparkles className="w-3.5 h-3.5 fill-[#0a0a0a] text-[#0a0a0a]" />
-              <span style={{ color: '#0a0a0a' }}>ZERO SETUP REQUIRED</span>
+              <Sparkles className="w-3.5 h-3.5 !fill-[#0a0a0a] !text-[#0a0a0a] !stroke-[#0a0a0a]" />
+              <span className="!text-[#0a0a0a] font-black">ZERO SETUP REQUIRED</span>
             </div>
 
             {/* Display Headline */}
-            <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight text-paper dark:text-[#f0f4fc]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight text-white dark:text-[#f0f4fc]">
               <span>STOP READING ABOUT SQL.</span>
               <br />
               <span className="inline-block text-acid underline decoration-4 decoration-acid/60 mt-1">
@@ -707,7 +706,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             </h2>
 
             {/* Subtitle */}
-            <p className="font-mono text-sm sm:text-base text-paper/85 dark:text-neutral-300 max-w-xl mx-auto font-bold leading-relaxed">
+            <p className="font-mono text-sm sm:text-base text-neutral-300 dark:text-neutral-300 max-w-xl mx-auto font-bold leading-relaxed">
               Open the editor, run queries against real tables in milliseconds, and build the problem-solving reflexes needed for technical interviews.
             </p>
 
@@ -715,15 +714,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             <div className="pt-2">
               <button
                 onClick={() => onNavigate('questions')}
-                className="btn-press bg-acid hover:bg-white h-14 sm:h-16 px-8 sm:px-12 border-3 border-ink font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-hard inline-flex items-center gap-3 cursor-pointer transition-colors"
-                style={{ color: '#0a0a0a' }}
+                className="btn-press bg-acid hover:bg-white h-14 sm:h-16 px-8 sm:px-12 border-3 border-ink font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-hard inline-flex items-center gap-3 cursor-pointer transition-colors !text-[#0a0a0a]"
               >
-                <span className="font-black" style={{ color: '#0a0a0a' }}>OPEN SQL IDE NOW</span>
-                <ArrowRight className="w-5 h-5 stroke-[3]" style={{ color: '#0a0a0a' }} />
+                <span className="font-black !text-[#0a0a0a]">OPEN SQL IDE NOW</span>
+                <ArrowRight className="w-5 h-5 !stroke-[#0a0a0a] !text-[#0a0a0a]" />
               </button>
             </div>
 
-            <div className="font-mono text-[11px] text-paper/60 dark:text-neutral-400 font-bold uppercase tracking-wider pt-2">
+            <div className="font-mono text-[11px] text-neutral-400 dark:text-neutral-400 font-bold uppercase tracking-wider pt-2">
               50 PROBLEMS • ONE EDITOR • NO ACCOUNT NEEDED TO PRACTICE
             </div>
           </div>

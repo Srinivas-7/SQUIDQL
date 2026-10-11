@@ -278,16 +278,6 @@ html.dark .border-ink\/40 {
 }
 
 /* Accent Buttons & Badges */
-html.dark .bg-acid,
-html.dark .bg-acid:not(.bg-ink),
-html.dark h1 .bg-acid,
-html.dark h2 .bg-acid,
-html.dark h3 .bg-acid,
-html.dark .bg-acid > span:not(.bg-ink *) {
-  background-color: #e8ff00 !important;
-  color: #0a0a0a !important;
-}
-
 html.dark .bg-sky {
   background-color: #5ec8ff !important;
   color: #0a0a0a !important;
@@ -305,7 +295,7 @@ html.dark .bg-ink {
   border-color: #ffffff !important;
 }
 
-html.dark .bg-ink *,
+html.dark .bg-ink *:not(.bg-acid):not(.bg-acid *):not([class*="bg-acid"]):not([class*="bg-acid"] *):not(.text-acid):not([class*="text-acid"]),
 html.dark .text-paper,
 html.dark .text-white {
   color: #f0f4fc !important;
@@ -314,6 +304,78 @@ html.dark .text-white {
 html.dark .bg-ink .text-acid,
 html.dark [class*="text-acid"] {
   color: #e8ff00 !important;
+}
+
+/* ==========================================================================
+   UNIVERSAL RULE: ALL CONTENT INSIDE ANY YELLOW BACKGROUND MUST BE PURE BLACK
+   (Applies to all themes: Light, Dark, hover states, buttons, badges, chips, etc.)
+   ========================================================================== */
+
+.bg-acid,
+.bg-acid *,
+.bg-grain-acid,
+.bg-grain-acid *,
+[class*="bg-acid"],
+[class*="bg-acid"] *,
+[class*="bg-grain-acid"],
+[class*="bg-grain-acid"] *,
+[class*="hover:bg-acid"]:hover,
+[class*="hover:bg-acid"]:hover *,
+html.dark .bg-acid,
+html.dark .bg-acid *,
+html.dark .bg-grain-acid,
+html.dark .bg-grain-acid *,
+html.dark [class*="bg-acid"],
+html.dark [class*="bg-acid"] *,
+html.dark [class*="bg-grain-acid"],
+html.dark [class*="bg-grain-acid"] *,
+html.dark [class*="hover:bg-acid"]:hover,
+html.dark [class*="hover:bg-acid"]:hover * {
+  color: #0a0a0a !important;
+}
+
+/* All SVGs & Icons inside any yellow background must have pure black stroke */
+.bg-acid svg,
+.bg-acid svg *,
+.bg-acid * svg,
+.bg-acid * svg *,
+[class*="bg-acid"] svg,
+[class*="bg-acid"] svg *,
+[class*="bg-acid"] * svg,
+[class*="bg-acid"] * svg *,
+[class*="hover:bg-acid"]:hover svg,
+[class*="hover:bg-acid"]:hover svg *,
+html.dark .bg-acid svg,
+html.dark .bg-acid svg *,
+html.dark .bg-acid * svg,
+html.dark .bg-acid * svg *,
+html.dark [class*="bg-acid"] svg,
+html.dark [class*="bg-acid"] svg *,
+html.dark [class*="bg-acid"] * svg,
+html.dark [class*="bg-acid"] * svg *,
+html.dark [class*="hover:bg-acid"]:hover svg,
+html.dark [class*="hover:bg-acid"]:hover svg * {
+  stroke: #0a0a0a !important;
+  color: #0a0a0a !important;
+}
+
+/* If SVG has fill, ensure it stays black on yellow */
+.bg-acid svg[fill]:not([fill="none"]),
+.bg-acid svg[fill]:not([fill="none"]) *,
+[class*="bg-acid"] svg[fill]:not([fill="none"]),
+[class*="bg-acid"] svg[fill]:not([fill="none"]) *,
+html.dark .bg-acid svg[fill]:not([fill="none"]),
+html.dark .bg-acid svg[fill]:not([fill="none"]) *,
+html.dark [class*="bg-acid"] svg[fill]:not([fill="none"]),
+html.dark [class*="bg-acid"] svg[fill]:not([fill="none"]) * {
+  fill: #0a0a0a !important;
+}
+
+.bg-acid svg[fill="none"],
+[class*="bg-acid"] svg[fill="none"],
+html.dark .bg-acid svg[fill="none"],
+html.dark [class*="bg-acid"] svg[fill="none"] {
+  fill: none !important;
 }
 
 /* Visible Solid Neo-Brutalist Hard 3D Shadows in Dark Mode */
