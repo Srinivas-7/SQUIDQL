@@ -278,7 +278,12 @@ html.dark .border-ink\/40 {
 }
 
 /* Accent Buttons & Badges */
-html.dark .bg-acid {
+html.dark .bg-acid,
+html.dark .bg-acid:not(.bg-ink),
+html.dark h1 .bg-acid,
+html.dark h2 .bg-acid,
+html.dark h3 .bg-acid,
+html.dark .bg-acid > span:not(.bg-ink *) {
   background-color: #e8ff00 !important;
   color: #0a0a0a !important;
 }
