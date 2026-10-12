@@ -144,14 +144,24 @@ export async function loadProgressFromFirebase(userId: string): Promise<UserProg
     if (!snap.exists()) return null;
 
     const data = snap.data();
+    const completed: Record<number, any> = {};
+    if (data.completedChallenges && typeof data.completedChallenges === 'object') {
+      Object.entries(data.completedChallenges).forEach(([key, val]) => {
+        const numKey = Number(key);
+        if (!isNaN(numKey)) {
+          completed[numKey] = val;
+        }
+      });
+    }
+
     return {
-      completedChallenges: data.completedChallenges || {},
-      inProgressQueries: {},
+      completedChallenges: completed,
+      inProgressQueries: data.inProgressQueries || {},
       currentStreak: data.currentStreak || 1,
       bestStreak: data.bestStreak || 1,
       totalXp: data.totalXp || 0,
       lastActiveDate: data.lastActiveDate || new Date().toISOString().split('T')[0],
-      lastSolvedId: undefined,
+      lastSolvedId: data.lastSolvedId,
     };
   } catch {
     return null;

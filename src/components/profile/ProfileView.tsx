@@ -1,6 +1,6 @@
 import React from 'react';
 import type { UserProfile, UserProgress } from '../../types';
-import { CHALLENGES } from '../../data/challenges';
+import { CHALLENGES, ALL_CHALLENGES } from '../../data/challenges';
 import { Check, LogOut, ArrowRight, Zap } from 'lucide-react';
 import { DoodleAvatar } from '../common/DoodleAvatar';
 import type { NavPage } from '../layout/Navbar';
@@ -21,9 +21,9 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
   onSignOut,
 }) => {
   const totalQuestions = CHALLENGES.length;
-  const solvedChallenges = CHALLENGES.filter((c) => !!progress.completedChallenges[c.id]);
-  const solvedCount = solvedChallenges.length;
-  const completionPercent = Math.round((solvedCount / totalQuestions) * 100);
+  const solvedChallenges = ALL_CHALLENGES.filter((c) => !!progress.completedChallenges[c.id]);
+  const solvedCount = Object.keys(progress.completedChallenges || {}).length;
+  const completionPercent = Math.min(100, Math.round((solvedCount / totalQuestions) * 100));
 
   return (
     <div className="flex-1 bg-transparent py-12 sm:py-16 select-none text-[#1C1C1C] dark:text-[#F4F4F0] transition-colors duration-150">

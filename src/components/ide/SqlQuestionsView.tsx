@@ -205,19 +205,17 @@ export const SqlQuestionsView: React.FC<SqlQuestionsViewProps> = ({
           colors: ['#4C1D95', '#059669', '#7C3AED', '#F59E0B'],
         });
 
-        if (!profile.isGuest) {
-          const { progress: updated } = recordChallengeSolved(
-            activeQuestion.id,
-            subResult.executionTimeMs || 0,
-            hintsUnlocked,
-            false
-          );
+        const { progress: updated } = recordChallengeSolved(
+          activeQuestion.id,
+          subResult.executionTimeMs || 0,
+          hintsUnlocked,
+          progress
+        );
 
-          onProgressUpdated(updated);
+        onProgressUpdated(updated);
 
-          if (profile.id) {
-            syncProgressToFirebase(profile.id, updated);
-          }
+        if (profile.id && !profile.isGuest) {
+          syncProgressToFirebase(profile.id, updated);
         }
       }
     } catch (err: any) {
@@ -260,7 +258,7 @@ export const SqlQuestionsView: React.FC<SqlQuestionsViewProps> = ({
     return map;
   }, [filteredQuestions]);
 
-  const solvedCount = CHALLENGES.filter((c) => !!progress.completedChallenges[c.id]).length;
+  const solvedCount = Object.keys(progress.completedChallenges || {}).length;
   const totalCount = CHALLENGES.length;
 
   // -------------------------------------------------------------

@@ -26,17 +26,19 @@ import type { NavPage } from '../layout/Navbar';
 interface ResourcesViewProps {
   initialResourceId?: string | null;
   onNavigate?: (page: NavPage, questionId?: number, trackId?: string) => void;
+  progress?: UserProgress;
 }
 
 export const ResourcesView: React.FC<ResourcesViewProps> = ({ 
   initialResourceId = null,
-  onNavigate 
+  onNavigate,
+  progress: externalProgress,
 }) => {
   const [selectedResourceId, setSelectedResourceId] = useState<string | null>(initialResourceId);
   const [resourceSearchQuery, setResourceSearchQuery] = useState('');
   const [solutionModalProblem, setSolutionModalProblem] = useState<Challenge | null>(null);
   const [copiedQuery, setCopiedQuery] = useState(false);
-  const [userProgress, _setUserProgress] = useState<UserProgress>(() => loadUserProgress());
+  const userProgress = externalProgress || loadUserProgress();
 
   const filteredResources = SQL_RESOURCES;
 

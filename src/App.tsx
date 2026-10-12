@@ -10,12 +10,12 @@ import {
   saveUserProfile, 
   loadUserProgress, 
   saveUserProgress,
-  createEmptyProgress,
-  clearStoredProgress
+  mergeProgress
 } from './services/storage';
 import { 
   subscribeToAuthState, 
   loadProgressFromFirebase, 
+  syncProgressToFirebase,
   signOutUser 
 } from './services/firebase';
 import { getSqlEngine } from './services/sqlEngine';
@@ -38,9 +38,7 @@ export function App() {
   const [activeQuestionId, setActiveQuestionId] = useState<number | null>(null);
   const [activeTrackId, setActiveTrackId] = useState<string | null>(null);
   const [userProfile, setUserProfile] = useState<UserProfile>(initialProfile);
-  const [userProgress, setUserProgress] = useState<UserProgress>(() => 
-    initialProfile.isGuest ? createEmptyProgress() : loadUserProgress(false)
-  );
+  const [userProgress, setUserProgress] = useState<UserProgress>(() => loadUserProgress());
 
   // Preload SQLite WebAssembly engine in background on launch
   useEffect(() => {
@@ -65,21 +63,19 @@ export function App() {
         setUserProfile(profile);
         saveUserProfile(profile);
 
-        // Load progress from Firestore if available
+        // Load progress from Firestore if available, merge with local progress so nothing is lost
         const cloudProgress = await loadProgressFromFirebase(profile.id);
-        if (cloudProgress) {
-          setUserProgress(cloudProgress);
-          saveUserProgress(cloudProgress, false);
-        } else {
-          const localProgress = loadUserProgress(false);
-          setUserProgress(localProgress);
-        }
+        const localProgress = loadUserProgress();
+        const merged = mergeProgress(localProgress, cloudProgress);
+        setUserProgress(merged);
+        saveUserProgress(merged);
+        syncProgressToFirebase(profile.id, merged);
       } else {
         const guest = loadUserProfile();
         setUserProfile(guest);
-        // Guests do not keep progress
-        setUserProgress(createEmptyProgress());
-        clearStoredProgress();
+        // Persist local progress for guest (never wipe solved problems)
+        const localProgress = loadUserProgress();
+        setUserProgress(localProgress);
       }
     });
 
@@ -124,8 +120,7 @@ export function App() {
     };
     setUserProfile(guest);
     saveUserProfile(guest);
-    setUserProgress(createEmptyProgress());
-    clearStoredProgress();
+    setUserProgress(loadUserProgress());
   };
 
   const handleOpenAuth = () => {
@@ -172,6 +167,7 @@ export function App() {
           <ResourcesView 
             initialResourceId={activeTrackId} 
             onNavigate={handleNavigate} 
+            progress={userProgress}
           />
         )}
 

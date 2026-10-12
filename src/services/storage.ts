@@ -1,14 +1,14 @@
 import type { UserProgress, UserProfile, ConceptMastery } from '../types';
-import { CHALLENGES } from '../data/challenges';
+import { CHALLENGES, ALL_CHALLENGES } from '../data/challenges';
 
 const PROGRESS_KEY = 'sqlquest_user_progress_v1';
 const PROFILE_KEY = 'sqlquest_user_profile_v1';
 
 const defaultProfile: UserProfile = {
-  id: 'diver_' + Math.random().toString(36).substring(2, 9),
-  username: 'AbyssalDiver',
-  email: 'cadet@sqlquest.ocean',
-  avatarUrl: '🌊',
+  id: 'cadet_' + Math.random().toString(36).substring(2, 9),
+  username: 'SQL Cadet',
+  email: 'cadet@squidql.dev',
+  avatarUrl: '🐙',
   memberSince: new Date().toLocaleDateString('en-US', { month: 'short', year: 'numeric' }),
   isGuest: true
 };
@@ -41,15 +41,24 @@ export function saveUserProfile(profile: UserProfile): void {
   }
 }
 
-export function loadUserProgress(isGuest = false): UserProgress {
-  if (isGuest) {
-    return createEmptyProgress();
-  }
+/**
+ * Loads user progress from localStorage.
+ * Always persists and retrieves progress for both guests and authenticated cadets.
+ */
+export function loadUserProgress(_deprecatedIsGuest?: boolean): UserProgress {
   try {
     const raw = localStorage.getItem(PROGRESS_KEY);
     if (!raw) return createEmptyProgress();
     const data: UserProgress = JSON.parse(raw);
     
+    // Ensure completedChallenges is an initialized object
+    if (!data.completedChallenges || typeof data.completedChallenges !== 'object') {
+      data.completedChallenges = {};
+    }
+    if (!data.inProgressQueries || typeof data.inProgressQueries !== 'object') {
+      data.inProgressQueries = {};
+    }
+
     // Check and update streak based on date
     const today = new Date().toISOString().split('T')[0];
     const lastActive = data.lastActiveDate;
@@ -70,7 +79,7 @@ export function loadUserProgress(isGuest = false): UserProgress {
         data.currentStreak = 1;
       }
       data.lastActiveDate = today;
-      saveUserProgress(data, false);
+      saveUserProgress(data);
     }
     
     return data;
@@ -79,15 +88,15 @@ export function loadUserProgress(isGuest = false): UserProgress {
   }
 }
 
-export function saveUserProgress(progress: UserProgress, isGuest = false): void {
-  // If not logged in (guest), do NOT save or keep progress in storage
-  if (isGuest) {
-    return;
-  }
+/**
+ * Saves user progress to localStorage.
+ * Persists for all users so solved questions are never lost.
+ */
+export function saveUserProgress(progress: UserProgress, _deprecatedIsGuest?: boolean): void {
   try {
     localStorage.setItem(PROGRESS_KEY, JSON.stringify(progress));
   } catch (err) {
-    console.error('Failed to save progress', err);
+    console.error('Failed to save progress to localStorage', err);
   }
 }
 
@@ -99,24 +108,56 @@ export function clearStoredProgress(): void {
   }
 }
 
+/**
+ * Merges local and remote progress objects without losing any solved challenge.
+ */
+export function mergeProgress(local: UserProgress, remote?: UserProgress | null): UserProgress {
+  if (!remote) return local;
+
+  const mergedCompleted = {
+    ...(local.completedChallenges || {}),
+    ...(remote.completedChallenges || {})
+  };
+
+  const mergedDrafts = {
+    ...(local.inProgressQueries || {}),
+    ...(remote.inProgressQueries || {})
+  };
+
+  return {
+    completedChallenges: mergedCompleted,
+    inProgressQueries: mergedDrafts,
+    currentStreak: Math.max(local.currentStreak || 0, remote.currentStreak || 0),
+    bestStreak: Math.max(local.bestStreak || 0, remote.bestStreak || 0),
+    totalXp: Math.max(local.totalXp || 0, remote.totalXp || 0),
+    lastActiveDate: remote.lastActiveDate || local.lastActiveDate || new Date().toISOString().split('T')[0],
+    lastSolvedId: remote.lastSolvedId ?? local.lastSolvedId,
+  };
+}
+
+/**
+ * Records a challenge as solved.
+ * Supports challenges from ALL tracks (Workout 50, LeetCode 50, HackerRank, etc.)
+ * Saves progress immediately to localStorage and updates total XP and streaks.
+ */
 export function recordChallengeSolved(
   challengeId: number,
   executionTimeMs: number,
   hintsUsedCount: number,
-  isGuest = false
+  currentProgress?: UserProgress
 ): { progress: UserProgress; isFirstTime: boolean; totalSolved: number; milestone?: string } {
-  // If guest, do not persist progress
-  if (isGuest) {
-    return {
-      progress: createEmptyProgress(),
-      isFirstTime: false,
-      totalSolved: 0,
-      milestone: undefined
-    };
-  }
+  // Use passed in-memory progress if provided; otherwise load latest from storage
+  const baseProgress = currentProgress || loadUserProgress();
+  
+  // Clone progress to avoid accidental mutations
+  const progress: UserProgress = {
+    ...baseProgress,
+    completedChallenges: { ...(baseProgress.completedChallenges || {}) },
+    inProgressQueries: { ...(baseProgress.inProgressQueries || {}) }
+  };
 
-  const progress = loadUserProgress(false);
-  const challenge = CHALLENGES.find((c) => c.id === challengeId);
+  // Find challenge across ALL available tracks
+  const challenge = ALL_CHALLENGES.find((c) => c.id === challengeId);
   const isFirstTime = !progress.completedChallenges[challengeId];
 
   const existing = progress.completedChallenges[challengeId];
@@ -127,8 +168,9 @@ export function recordChallengeSolved(
     hintsUsedCount
   };
 
-  if (isFirstTime && challenge) {
-    progress.totalXp += challenge.xp;
+  if (isFirstTime) {
+    const xpToAdd = challenge?.xp || 100;
+    progress.totalXp = (progress.totalXp || 0) + xpToAdd;
   }
 
   progress.lastSolvedId = challengeId;
@@ -141,21 +183,21 @@ export function recordChallengeSolved(
     milestone = `${totalSolved} QUERIES DOWN. THE OCEAN GETS DEEPER.`;
   }
 
-  saveUserProgress(progress, false);
+  // Persist to storage immediately
+  saveUserProgress(progress);
   return { progress, isFirstTime, totalSolved, milestone };
 }
 
-export function saveQueryDraft(challengeId: number, queryText: string, isGuest = false): void {
-  if (isGuest) return;
-  const progress = loadUserProgress(false);
+export function saveQueryDraft(challengeId: number, queryText: string, _isGuest?: boolean): void {
+  const progress = loadUserProgress();
+  if (!progress.inProgressQueries) progress.inProgressQueries = {};
   progress.inProgressQueries[challengeId] = queryText;
-  saveUserProgress(progress, false);
+  saveUserProgress(progress);
 }
 
-export function getQueryDraft(challengeId: number, isGuest = false): string | undefined {
-  if (isGuest) return undefined;
-  const progress = loadUserProgress(false);
-  return progress.inProgressQueries[challengeId];
+export function getQueryDraft(challengeId: number, _isGuest?: boolean): string | undefined {
+  const progress = loadUserProgress();
+  return progress.inProgressQueries?.[challengeId];
 }
 
 export function calculateConceptMastery(progress: UserProgress): ConceptMastery[] {
