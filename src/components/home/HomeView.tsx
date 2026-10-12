@@ -125,17 +125,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
   };
 
   return (
-    <div className="w-full flex flex-col select-none overflow-x-hidden bg-paper dark:bg-[#0b132b] text-ink transition-colors">
+    <div className="w-full flex flex-col select-none overflow-x-hidden bg-[#F6F6F2] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F4F4F0] transition-colors duration-150">
       
       {/* =========================================================================
           SECTION 1: HERO SECTION
           ========================================================================= */}
-      <section className="relative px-4 sm:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24 border-b-3 border-ink overflow-hidden bg-grain">
+      <section className="relative px-4 sm:px-8 pt-12 sm:pt-20 pb-16 sm:pb-24 border-b-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 overflow-hidden bg-grain">
         
         {/* Floating Neo-Brutalist Sticker Chips (Desktop only) */}
         <div 
           onClick={() => onNavigate('questions')}
-          className="hidden xl:flex absolute top-12 left-10 px-4 py-2 bg-pink border-3 border-ink items-center justify-center -rotate-6 shadow-hard transition-transform hover:rotate-0 hover:scale-105 cursor-pointer z-10 font-mono text-xs font-black text-paper"
+          className="hidden xl:flex absolute top-12 left-10 px-4 py-2 bg-[#4C1D95] dark:bg-[#581C87] border-2 sm:border-3 border-[#1C1C1C] dark:border-[#A78BFA] items-center justify-center -rotate-6 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard transition-transform hover:rotate-0 hover:scale-105 cursor-pointer z-10 font-mono text-xs font-black text-white"
           title="Interactive SQL Terminal"
         >
           <Terminal className="w-4 h-4 mr-2 stroke-[2.5]" />
@@ -144,39 +144,38 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
 
         <div 
           onClick={() => onNavigate('questions')}
-          className="hidden xl:flex absolute top-14 right-12 w-20 h-20 bg-acid rounded-full border-3 border-ink items-center justify-center rotate-12 shadow-hard transition-transform hover:rotate-0 hover:scale-105 cursor-pointer z-10 font-display font-black text-2xl text-ink text-center leading-none"
+          className="hidden xl:flex absolute top-14 right-12 w-20 h-20 bg-white dark:bg-[#1C1C1C] rounded-full border-2 sm:border-3 border-[#4C1D95] dark:border-[#A78BFA] items-center justify-center rotate-12 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard transition-transform hover:rotate-0 hover:scale-105 cursor-pointer z-10 font-display font-black text-2xl text-[#4C1D95] dark:text-[#A78BFA] text-center leading-none"
           title="50+ Curated Problems"
         >
           <div>
             <div className="text-xl">50+</div>
-            <div className="text-[9px] font-mono font-bold tracking-tight">PROBLEMS</div>
+            <div className="text-[9px] font-mono font-bold tracking-tight text-[#1C1C1C] dark:text-[#C9C5B9]">PROBLEMS</div>
           </div>
         </div>
 
         <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8 relative z-10">
           
           {/* Eyebrow Status Pill */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white dark:bg-[#141f36] border-2 sm:border-3 border-ink shadow-hard-xs">
-            <span className="w-2.5 h-2.5 rounded-full bg-acid border border-ink animate-pulse" />
-            <span className="eyebrow-tracker text-[10px] sm:text-xs font-black text-ink dark:text-neutral-100">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/50 shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#059669] dark:bg-[#A78BFA] border border-[#1C1C1C] animate-pulse" />
+            <span className="eyebrow-tracker text-[10px] sm:text-xs font-black text-[#1C1C1C] dark:text-[#F4F4F0]">
               IN-MEMORY SQLITE ENGINE • 0MS LATENCY • 100% HANDS-ON
             </span>
           </div>
 
           {/* Main Display Headline */}
-          <h1 className="font-display font-black text-ink dark:text-[#f0f4fc] uppercase tracking-tight leading-[0.88] text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="font-display font-black text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight leading-[0.88] text-4xl sm:text-6xl md:text-7xl lg:text-8xl">
             <span>MASTER SQL BY</span>
             <br />
             <span 
-              className="inline-block bg-acid border-3 sm:border-4 border-ink px-4 sm:px-8 py-1.5 sm:py-2.5 -rotate-1 shadow-hard-lg mt-3 text-ink"
-              style={{ color: '#0a0a0a' }}
+              className="inline-block bg-[#4C1D95] dark:bg-[#581C87] text-white border-3 sm:border-4 border-[#1C1C1C] dark:border-[#A78BFA] px-4 sm:px-8 py-1.5 sm:py-2.5 -rotate-1 shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard-lg mt-3"
             >
               SOLVING REAL PROBLEMS.
             </span>
           </h1>
 
-          {/* Professional Explanatory Subtitle */}
-          <p className="font-mono text-sm sm:text-lg md:text-xl text-ink/85 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed font-bold">
+          {/* Explanatory Subtitle */}
+          <p className="font-mono text-sm sm:text-lg md:text-xl text-[#4A4A48] dark:text-[#C9C5B9] max-w-2xl mx-auto leading-relaxed font-bold">
             Write queries, inspect real-time table diffs, and conquer database interviews with 50+ curated problems running directly inside your browser.
           </p>
 
@@ -184,38 +183,38 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => onNavigate('questions')}
-              className="btn-press w-full sm:w-auto bg-ink text-paper dark:bg-[#141f36] dark:text-white dark:hover:bg-acid dark:hover:text-[#0b132b] h-14 sm:h-16 px-8 sm:px-10 border-3 border-ink font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-hard inline-flex items-center justify-center gap-3 cursor-pointer"
+              className="btn-press w-full sm:w-auto bg-[#4C1D95] dark:bg-[#581C87] text-white hover:bg-[#3B0764] h-14 sm:h-16 px-8 sm:px-10 border-3 border-[#1C1C1C] dark:border-[#A78BFA] font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard inline-flex items-center justify-center gap-3 cursor-pointer transition-colors"
             >
               <span>EXPLORE PROBLEMS (50+)</span>
-              <ArrowRight className="w-5 h-5 text-acid stroke-[3]" />
+              <ArrowRight className="w-5 h-5 stroke-[3]" />
             </button>
 
             <button
               onClick={() => onNavigate('resources')}
-              className="btn-press w-full sm:w-auto bg-white text-ink dark:bg-transparent dark:text-white dark:hover:bg-sky dark:hover:text-[#0b132b] h-14 sm:h-16 px-8 sm:px-10 border-3 border-ink font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-hard inline-flex items-center justify-center gap-3 cursor-pointer"
+              className="btn-press w-full sm:w-auto bg-white dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F4F4F0] hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:text-[#4C1D95] dark:hover:text-[#A78BFA] h-14 sm:h-16 px-8 sm:px-10 border-3 border-[#1C1C1C] dark:border-[#C9C5B9]/60 font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard inline-flex items-center justify-center gap-3 cursor-pointer transition-colors"
             >
               <span>VIEW CURRICULUM</span>
-              <Layers className="w-5 h-5 text-ink stroke-[2.5]" />
+              <Layers className="w-5 h-5 stroke-[2.5]" />
             </button>
           </div>
 
           {/* Quick Metrics Bar */}
           <div className="pt-6 sm:pt-8 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
-            <div className="p-3 bg-white dark:bg-[#141f36] border-2 border-ink shadow-hard-xs text-center">
-              <div className="font-display font-black text-xl sm:text-2xl text-ink">50+</div>
-              <div className="font-mono text-[10px] sm:text-xs text-ink/70 font-bold uppercase">Curated Queries</div>
+            <div className="p-3 bg-white dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-center">
+              <div className="font-display font-black text-xl sm:text-2xl text-[#4C1D95] dark:text-[#F4F4F0]">50+</div>
+              <div className="font-mono text-[10px] sm:text-xs text-[#6B7280] dark:text-[#C9C5B9] font-bold uppercase">Curated Queries</div>
             </div>
-            <div className="p-3 bg-white dark:bg-[#141f36] border-2 border-ink shadow-hard-xs text-center">
-              <div className="font-display font-black text-xl sm:text-2xl text-acid">0ms</div>
-              <div className="font-mono text-[10px] sm:text-xs text-ink/70 font-bold uppercase">Server Latency</div>
+            <div className="p-3 bg-white dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-center">
+              <div className="font-display font-black text-xl sm:text-2xl text-[#059669] dark:text-[#A78BFA]">0ms</div>
+              <div className="font-mono text-[10px] sm:text-xs text-[#6B7280] dark:text-[#C9C5B9] font-bold uppercase">Server Latency</div>
             </div>
-            <div className="p-3 bg-white dark:bg-[#141f36] border-2 border-ink shadow-hard-xs text-center">
-              <div className="font-display font-black text-xl sm:text-2xl text-sky">WASM</div>
-              <div className="font-mono text-[10px] sm:text-xs text-ink/70 font-bold uppercase">Real SQLite Engine</div>
+            <div className="p-3 bg-white dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-center">
+              <div className="font-display font-black text-xl sm:text-2xl text-[#7C3AED] dark:text-[#A78BFA]">WASM</div>
+              <div className="font-mono text-[10px] sm:text-xs text-[#6B7280] dark:text-[#C9C5B9] font-bold uppercase">Real SQLite Engine</div>
             </div>
-            <div className="p-3 bg-white dark:bg-[#141f36] border-2 border-ink shadow-hard-xs text-center">
-              <div className="font-display font-black text-xl sm:text-2xl text-pink">100%</div>
-              <div className="font-mono text-[10px] sm:text-xs text-ink/70 font-bold uppercase">Free & Open Access</div>
+            <div className="p-3 bg-white dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-center">
+              <div className="font-display font-black text-xl sm:text-2xl text-[#1C1C1C] dark:text-[#F4F4F0]">100%</div>
+              <div className="font-mono text-[10px] sm:text-xs text-[#6B7280] dark:text-[#C9C5B9] font-bold uppercase">Free & Open Access</div>
             </div>
           </div>
 
@@ -229,27 +228,27 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
         
         {/* Section Heading */}
         <div className="text-center space-y-3 mb-10 sm:mb-14">
-          <div className="inline-block bg-sky text-ink border-2 border-ink px-3 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs">
+          <div className="inline-block bg-[#F3E8FF] text-[#4C1D95] dark:bg-[#581C87] dark:text-[#F4F4F0] border-2 border-[#1C1C1C] dark:border-[#A78BFA] px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs">
             ✦ LIVE IN-BROWSER SANDBOX PREVIEW
           </div>
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-ink dark:text-[#f0f4fc] uppercase tracking-tight">
+          <h2 className="font-display font-black text-3xl sm:text-5xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
             SEE IT IN ACTION RIGHT HERE.
           </h2>
-          <p className="font-mono text-sm sm:text-base text-ink/80 dark:text-neutral-300 max-w-xl mx-auto font-bold">
+          <p className="font-mono text-sm sm:text-base text-[#4A4A48] dark:text-[#C9C5B9] max-w-xl mx-auto font-bold">
             Select a problem type below and hit run to execute genuine SQL queries against the WebAssembly SQLite engine.
           </p>
         </div>
 
         {/* The Interactive Window Card */}
-        <div className="bg-white dark:bg-[#141f36] border-3 sm:border-4 border-ink shadow-hard-lg overflow-hidden">
+        <div className="bg-white dark:bg-[#1C1C1C] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] shadow-[6px_6px_0_0_#1C1C1C] dark:shadow-hard-lg overflow-hidden">
           
-          {/* Mac-style Retro Terminal Titlebar */}
-          <div className="bg-paper dark:bg-[#0d1728] border-b-3 border-ink px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+          {/* Terminal Titlebar */}
+          <div className="bg-[#EDE9FE] dark:bg-[#1C1C1C] border-b-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 px-4 py-3 flex flex-wrap items-center justify-between gap-3">
             <div className="flex items-center gap-2">
-              <span className="w-3.5 h-3.5 rounded-full bg-pink border-2 border-ink" />
-              <span className="w-3.5 h-3.5 rounded-full bg-acid border-2 border-ink" />
-              <span className="w-3.5 h-3.5 rounded-full bg-sky border-2 border-ink" />
-              <span className="ml-2 font-mono text-xs font-black text-ink dark:text-white uppercase tracking-wider hidden sm:inline">
+              <span className="w-3.5 h-3.5 rounded-full bg-[#EF4444] border-2 border-[#1C1C1C]" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#F59E0B] border-2 border-[#1C1C1C]" />
+              <span className="w-3.5 h-3.5 rounded-full bg-[#10B981] border-2 border-[#1C1C1C]" />
+              <span className="ml-2 font-mono text-xs font-black text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-wider hidden sm:inline">
                 SQUIDQL_PLAYGROUND.SQL
               </span>
             </div>
@@ -260,10 +259,10 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                 <button
                   key={demo.id}
                   onClick={() => setActiveTab(demo.id)}
-                  className={`px-3 py-1 font-mono text-xs font-bold border-2 border-ink cursor-pointer transition-all ${
+                  className={`px-3 py-1 font-mono text-xs font-bold border-2 cursor-pointer transition-all ${
                     activeTab === demo.id
-                      ? 'bg-acid text-ink shadow-hard-xs -translate-y-0.5'
-                      : 'bg-white dark:bg-[#1c2541] text-ink/70 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-[#253256]'
+                      ? 'bg-[#4C1D95] dark:bg-[#581C87] text-white border-[#1C1C1C] dark:border-[#A78BFA] shadow-[2px_2px_0_0_#1C1C1C] dark:shadow-hard-xs -translate-y-0.5'
+                      : 'bg-white dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#C9C5B9] border-[#1C1C1C] dark:border-[#C9C5B9]/40 hover:bg-[#F3E8FF] hover:text-[#4C1D95] dark:hover:text-[#F4F4F0]'
                   }`}
                 >
                   {demo.tabLabel}
@@ -273,40 +272,40 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
           </div>
 
           {/* Playground Body: Query Code + Results Panel */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y-3 lg:divide-y-0 lg:divide-x-3 divide-ink">
+          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y-2 lg:divide-y-0 lg:divide-x-2 divide-[#1C1C1C] dark:divide-[#C9C5B9]/40">
             
             {/* Left Column: SQL Editor Preview (7 Cols) */}
-            <div className="lg:col-span-7 p-5 sm:p-6 flex flex-col justify-between bg-white dark:bg-[#141f36]">
+            <div className="lg:col-span-7 p-5 sm:p-6 flex flex-col justify-between bg-white dark:bg-[#1C1C1C]">
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
-                    <h3 className="font-display font-black text-lg sm:text-xl text-ink dark:text-white">
+                    <h3 className="font-display font-black text-lg sm:text-xl text-[#1C1C1C] dark:text-[#F4F4F0]">
                       {activeDemo.title}
                     </h3>
-                    <p className="font-mono text-xs text-ink/75 dark:text-neutral-300">
+                    <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9]">
                       {activeDemo.description}
                     </p>
                   </div>
-                  <div className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 bg-neutral-100 dark:bg-[#0b132b] border-2 border-ink text-[10px] font-mono font-bold">
-                    <Cpu className="w-3 h-3 text-acid" />
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#F3E8FF] dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 text-[10px] font-mono font-bold text-[#4C1D95] dark:text-[#A78BFA]">
+                    <Cpu className="w-3 h-3 text-[#4C1D95] dark:text-[#A78BFA]" />
                     <span>SQLITE 3.45</span>
                   </div>
                 </div>
 
-                {/* Code Block with Retro Styling */}
-                <div className="relative bg-[#060b17] border-2 border-ink p-4 rounded-none overflow-x-auto shadow-inner text-xs sm:text-sm font-mono text-[#f0f4fc]">
+                {/* Code Block */}
+                <div className="relative bg-[#FAFAF8] dark:bg-[#1C1C1C] border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 p-4 rounded-none overflow-x-auto shadow-inner text-xs sm:text-sm font-mono text-[#1C1C1C] dark:text-[#F4F4F0]">
                   <pre className="font-mono leading-relaxed whitespace-pre font-bold">
                     <code>
                       {activeDemo.sql.split('\n').map((line, idx) => (
                         <div key={idx} className="table-row">
-                          <span className="table-cell pr-4 select-none text-neutral-500 text-right text-[11px]">
+                          <span className="table-cell pr-4 select-none text-[#9CA3AF] dark:text-[#C9C5B9]/50 text-right text-[11px]">
                             {idx + 1}
                           </span>
-                          <span className="table-cell text-sky-300">
+                          <span className="table-cell text-[#1C1C1C] dark:text-[#F4F4F0]">
                             {line.includes('SELECT') || line.includes('FROM') || line.includes('GROUP BY') || line.includes('ORDER BY') || line.includes('LEFT JOIN') || line.includes('HAVING') ? (
-                              <span className="text-acid font-black">{line}</span>
+                              <span className="text-[#4C1D95] dark:text-[#A78BFA] font-black">{line}</span>
                             ) : line.includes('OVER') || line.includes('PARTITION') || line.includes('DENSE_RANK') ? (
-                              <span className="text-pink font-bold">{line}</span>
+                              <span className="text-[#7C3AED] dark:text-[#C9C5B9] font-bold">{line}</span>
                             ) : (
                               <span>{line}</span>
                             )}
@@ -323,15 +322,15 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
                 <button
                   onClick={handleRunQuery}
                   disabled={isRunning}
-                  className="btn-press bg-acid text-ink px-6 py-2.5 border-2 sm:border-3 border-ink font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-hard inline-flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="btn-press bg-[#4C1D95] dark:bg-[#581C87] text-white px-6 py-2.5 border-2 sm:border-3 border-[#1C1C1C] dark:border-[#A78BFA] font-display font-black text-xs sm:text-sm uppercase tracking-wider shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard inline-flex items-center gap-2 cursor-pointer disabled:opacity-50 hover:bg-[#3B0764]"
                 >
-                  <Play className={`w-4 h-4 fill-ink stroke-ink ${isRunning ? 'animate-spin' : ''}`} />
+                  <Play className={`w-4 h-4 fill-current stroke-current ${isRunning ? 'animate-spin' : ''}`} />
                   <span>{isRunning ? 'EXECUTING...' : 'RUN QUERY'}</span>
                 </button>
 
                 <button
                   onClick={() => onNavigate('questions', activeDemo.targetQuestionId)}
-                  className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-ink dark:text-acid hover:underline cursor-pointer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-[#4C1D95] dark:text-[#A78BFA] hover:underline cursor-pointer"
                 >
                   <span>Open in IDE</span>
                   <ChevronRight className="w-4 h-4" />
@@ -340,40 +339,40 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             </div>
 
             {/* Right Column: Execution Output Table (5 Cols) */}
-            <div className="lg:col-span-5 p-5 sm:p-6 bg-paper/50 dark:bg-[#0e1628] flex flex-col justify-between">
+            <div className="lg:col-span-5 p-5 sm:p-6 bg-white dark:bg-[#1C1C1C] flex flex-col justify-between">
               <div className="space-y-3">
-                <div className="flex items-center justify-between border-b-2 border-ink pb-2">
+                <div className="flex items-center justify-between border-b-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 pb-2">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
-                    <span className="font-mono text-xs font-black text-ink dark:text-white uppercase">
+                    <CheckCircle2 className="w-4 h-4 text-[#059669] dark:text-[#A78BFA] stroke-[2.5]" />
+                    <span className="font-mono text-xs font-black text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                       QUERY RESULT ({activeDemo.rows.length} ROWS)
                     </span>
                   </div>
-                  <span className="font-mono text-[10px] font-bold px-2 py-0.5 bg-acid text-ink border border-ink">
+                  <span className="font-mono text-[10px] font-bold px-2 py-0.5 bg-[#DCFCE7] text-[#065F46] dark:bg-[#581C87] dark:text-[#F4F4F0] border border-[#059669] dark:border-[#1C1C1C]">
                     ⚡ {activeDemo.executionTime}
                   </span>
                 </div>
 
                 {/* Table Preview */}
-                <div className="overflow-x-auto border-2 border-ink bg-white dark:bg-[#141f36]">
+                <div className="overflow-x-auto border-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40 bg-white dark:bg-[#1C1C1C]">
                   <table className="w-full text-left font-mono text-xs border-collapse">
                     <thead>
-                      <tr className="bg-ink text-paper dark:bg-[#060b17] dark:text-white border-b-2 border-ink">
+                      <tr className="bg-[#F3E8FF] dark:bg-[#1C1C1C] text-[#3B0764] dark:text-[#F4F4F0] border-b-2 border-[#1C1C1C] dark:border-[#C9C5B9]/40">
                         {activeDemo.columns.map((col, idx) => (
-                          <th key={idx} className="p-2 font-bold uppercase tracking-wider text-[10px] border-r border-ink/20 last:border-r-0">
+                          <th key={idx} className="p-2 font-bold uppercase tracking-wider text-[10px] border-r border-[#1C1C1C]/20 dark:border-[#C9C5B9]/20 last:border-r-0">
                             {col}
                           </th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody key={runKey} className="divide-y divide-ink/20">
+                    <tbody key={runKey} className="divide-y divide-[#1C1C1C]/10 dark:divide-[#C9C5B9]/20">
                       {activeDemo.rows.map((row, rIdx) => (
                         <tr 
                           key={rIdx} 
-                          className="hover:bg-acid/15 dark:hover:bg-white/5 transition-colors"
+                          className="hover:bg-[#F3E8FF] dark:hover:bg-[#581C87]/20 transition-colors"
                         >
                           {row.map((val, cIdx) => (
-                            <td key={cIdx} className="p-2 text-ink dark:text-neutral-200 font-semibold border-r border-ink/10 last:border-r-0 whitespace-nowrap">
+                            <td key={cIdx} className="p-2 text-[#1C1C1C] dark:text-[#F4F4F0] font-semibold border-r border-[#1C1C1C]/10 dark:border-[#C9C5B9]/15 last:border-r-0 whitespace-nowrap">
                               {val}
                             </td>
                           ))}
@@ -385,12 +384,12 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
               </div>
 
               {/* Validation Status Banner */}
-              <div className="mt-4 p-2.5 bg-emerald-100 dark:bg-emerald-950/60 border-2 border-ink flex items-center justify-between text-xs font-mono font-bold text-emerald-900 dark:text-emerald-200">
+              <div className="mt-4 p-2.5 bg-[#ECFDF5] dark:bg-[#1C1C1C] border-2 border-[#059669] dark:border-[#A78BFA] flex items-center justify-between text-xs font-mono font-bold text-[#065F46] dark:text-[#A78BFA]">
                 <div className="flex items-center gap-1.5">
                   <Check className="w-4 h-4 stroke-[3]" />
                   <span>OUTPUT MATCHES TARGET SCHEMA</span>
                 </div>
-                <span className="text-[10px] uppercase font-black">VALIDATED</span>
+                <span className="text-[10px] uppercase font-black bg-[#059669] text-white px-1.5 py-0.5">VALIDATED</span>
               </div>
             </div>
 
@@ -402,17 +401,17 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* =========================================================================
           SECTION 3: WHY SQUIDQL - 4 CORE CAPABILITY BENTO CARDS
           ========================================================================= */}
-      <section className="px-4 sm:px-8 py-16 sm:py-20 border-t-3 border-ink bg-white dark:bg-[#101a33]">
+      <section className="px-4 sm:px-8 py-16 sm:py-20 border-t-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 bg-[#F6F6F2] dark:bg-[#1C1C1C]">
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <div className="inline-block bg-pink text-paper border-2 border-ink px-3 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs">
+            <div className="inline-block bg-[#F3E8FF] text-[#4C1D95] dark:bg-[#581C87] dark:text-[#F4F4F0] border-2 border-[#1C1C1C] dark:border-[#A78BFA] px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs">
               ✦ BUILT FOR DEVELOPERS & ANALYSTS
             </div>
-            <h2 className="font-display font-black text-3xl sm:text-5xl text-ink dark:text-[#f0f4fc] uppercase tracking-tight">
+            <h2 className="font-display font-black text-3xl sm:text-5xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
               WHY PRACTICE WITH SQUIDQL?
             </h2>
-            <p className="font-mono text-sm sm:text-base text-ink/80 dark:text-neutral-300 max-w-xl mx-auto font-bold">
+            <p className="font-mono text-sm sm:text-base text-[#4A4A48] dark:text-[#C9C5B9] max-w-xl mx-auto font-bold">
               We stripped away all the bloated setups and subscription walls so you can focus on pure SQL mastery.
             </p>
           </div>
@@ -420,69 +419,69 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
           {/* 4 Bento Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
-            {/* Card 1: WASM Engine (Acid Accent) */}
-            <div className="bg-paper dark:bg-[#141f36] border-3 sm:border-4 border-ink p-6 sm:p-8 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
-              <div className="w-12 h-12 bg-acid border-3 border-ink flex items-center justify-center shadow-hard-xs">
-                <Cpu className="w-6 h-6 text-ink stroke-[2.5]" />
+            {/* Card 1: WASM Engine */}
+            <div className="bg-white dark:bg-[#1C1C1C] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 sm:p-8 shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#F3E8FF] dark:bg-[#581C87] border-2 border-[#1C1C1C] flex items-center justify-center shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-[#4C1D95] dark:text-[#F4F4F0]">
+                <Cpu className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <h3 className="font-display font-black text-2xl text-ink dark:text-white uppercase tracking-tight">
+              <h3 className="font-display font-black text-2xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
                 01. Client-Side SQLite WASM Engine
               </h3>
-              <p className="font-mono text-sm text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-sm text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Run true database transactions directly in your browser. No server downtime, no rate limits, zero latency, and fully capable of operating offline.
               </p>
-              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-ink dark:text-acid">
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-[#059669] dark:text-[#A78BFA]">
                 <Check className="w-4 h-4 stroke-[3]" />
                 <span>Zero backend dependency</span>
               </div>
             </div>
 
-            {/* Card 2: Curated Problems (Sky Accent) */}
-            <div className="bg-paper dark:bg-[#141f36] border-3 sm:border-4 border-ink p-6 sm:p-8 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
-              <div className="w-12 h-12 bg-sky border-3 border-ink flex items-center justify-center shadow-hard-xs">
-                <Award className="w-6 h-6 text-ink stroke-[2.5]" />
+            {/* Card 2: Curated Problems */}
+            <div className="bg-white dark:bg-[#1C1C1C] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 sm:p-8 shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#F5F3FF] dark:bg-[#A78BFA] border-2 border-[#1C1C1C] flex items-center justify-center shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-[#7C3AED] dark:text-[#1C1C1C]">
+                <Award className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <h3 className="font-display font-black text-2xl text-ink dark:text-white uppercase tracking-tight">
+              <h3 className="font-display font-black text-2xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
                 02. Real Tech Interview Curations
               </h3>
-              <p className="font-mono text-sm text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-sm text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Handcrafted problems mapped to LeetCode SQL 50, DataLemur, and StrataScratch assessments, covering real questions asked by FAANG teams.
               </p>
-              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-ink dark:text-sky">
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-[#059669] dark:text-[#A78BFA]">
                 <Check className="w-4 h-4 stroke-[3]" />
                 <span>Categorized by Easy, Medium & Hard</span>
               </div>
             </div>
 
-            {/* Card 3: Instant Table Diff (Pink Accent) */}
-            <div className="bg-paper dark:bg-[#141f36] border-3 sm:border-4 border-ink p-6 sm:p-8 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
-              <div className="w-12 h-12 bg-pink border-3 border-ink flex items-center justify-center shadow-hard-xs">
-                <Code2 className="w-6 h-6 text-paper stroke-[2.5]" />
+            {/* Card 3: Instant Table Diff */}
+            <div className="bg-white dark:bg-[#1C1C1C] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 sm:p-8 shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#ECFDF5] dark:bg-[#C9C5B9] border-2 border-[#1C1C1C] flex items-center justify-center shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-[#059669] dark:text-[#1C1C1C]">
+                <Code2 className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <h3 className="font-display font-black text-2xl text-ink dark:text-white uppercase tracking-tight">
+              <h3 className="font-display font-black text-2xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
                 03. Real-Time Table Diff Verification
               </h3>
-              <p className="font-mono text-sm text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-sm text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Submit queries and see instant, row-by-row comparisons against verified test cases. Catch subtle ordering or rounding errors immediately.
               </p>
-              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-ink dark:text-pink">
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-[#059669] dark:text-[#A78BFA]">
                 <Check className="w-4 h-4 stroke-[3]" />
                 <span>Pixel-perfect expected vs actual outputs</span>
               </div>
             </div>
 
-            {/* Card 4: Progress & Privacy (Grain/White) */}
-            <div className="bg-paper dark:bg-[#141f36] border-3 sm:border-4 border-ink p-6 sm:p-8 shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
-              <div className="w-12 h-12 bg-white dark:bg-[#1c2541] border-3 border-ink flex items-center justify-center shadow-hard-xs">
-                <Zap className="w-6 h-6 text-ink dark:text-acid stroke-[2.5]" />
+            {/* Card 4: Progress & Privacy */}
+            <div className="bg-white dark:bg-[#1C1C1C] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 sm:p-8 shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all space-y-4">
+              <div className="w-12 h-12 bg-[#FEF3C7] dark:bg-[#581C87] border-2 border-[#1C1C1C] flex items-center justify-center shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs text-[#D97706] dark:text-[#F4F4F0]">
+                <Zap className="w-6 h-6 stroke-[2.5]" />
               </div>
-              <h3 className="font-display font-black text-2xl text-ink dark:text-white uppercase tracking-tight">
+              <h3 className="font-display font-black text-2xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
                 04. Local Drafts & Cloud Sync
               </h3>
-              <p className="font-mono text-sm text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-sm text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Start immediately without an account—every query draft is auto-saved locally. Connect Google Auth anytime to sync progress across devices.
               </p>
-              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-ink dark:text-neutral-200">
+              <div className="inline-flex items-center gap-1.5 font-mono text-xs font-black text-[#059669] dark:text-[#A78BFA]">
                 <Check className="w-4 h-4 stroke-[3]" />
                 <span>Zero login barrier to start practicing</span>
               </div>
@@ -496,21 +495,21 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* =========================================================================
           SECTION 4: PROBLEM CURRICULUM TRACKS
           ========================================================================= */}
-      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-3 border-ink bg-grain">
+      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 bg-grain">
         <div className="max-w-6xl mx-auto space-y-12">
           
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div className="space-y-2">
-              <div className="inline-block bg-acid text-ink border-2 border-ink px-3 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs">
+              <div className="inline-block bg-[#F3E8FF] text-[#4C1D95] dark:bg-[#581C87] dark:text-[#F4F4F0] border-2 border-[#1C1C1C] dark:border-[#A78BFA] px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs">
                 ✦ STRUCTURED LEARNING PATHS
               </div>
-              <h2 className="font-display font-black text-3xl sm:text-5xl text-ink dark:text-[#f0f4fc] uppercase tracking-tight">
+              <h2 className="font-display font-black text-3xl sm:text-5xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
                 EXPLORE BY SQL TOPIC.
               </h2>
             </div>
             <button
               onClick={() => onNavigate('resources')}
-              className="inline-flex items-center gap-2 font-mono text-sm font-black text-ink dark:text-acid hover:underline cursor-pointer"
+              className="inline-flex items-center gap-2 font-mono text-sm font-black text-[#4C1D95] dark:text-[#A78BFA] hover:underline cursor-pointer"
             >
               <span>View All Tracks & Curriculums</span>
               <ArrowRight className="w-4 h-4 stroke-[3]" />
@@ -523,23 +522,23 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             {/* Track 1: Basics & Filtering */}
             <div 
               onClick={() => onNavigate('questions', 1)}
-              className="bg-white dark:bg-[#141f36] border-3 border-ink p-6 shadow-hard hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
+              className="bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-neutral-100 dark:bg-[#0b132b] border border-ink">
+                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#DCFCE7] text-[#15803D] border border-[#15803D] dark:bg-[#1C1C1C] dark:text-[#C9C5B9] dark:border-[#C9C5B9]/40">
                     EASY • 10 PROBLEMS
                   </span>
-                  <Database className="w-4 h-4 text-ink" />
+                  <Database className="w-4 h-4 text-[#4C1D95] dark:text-[#A78BFA]" />
                 </div>
-                <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+                <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                   Basics & Filtering
                 </h3>
-                <p className="font-mono text-xs text-ink/75 dark:text-neutral-300">
+                <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9]">
                   Master SELECT, WHERE, LIKE, ORDER BY, and LIMIT queries.
                 </p>
               </div>
-              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-ink dark:text-acid">
+              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-[#4C1D95] dark:text-[#A78BFA]">
                 <span>Start Track</span>
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -548,23 +547,23 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             {/* Track 2: Aggregations */}
             <div 
               onClick={() => onNavigate('questions', 10)}
-              className="bg-white dark:bg-[#141f36] border-3 border-ink p-6 shadow-hard hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
+              className="bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-neutral-100 dark:bg-[#0b132b] border border-ink">
+                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#F3E8FF] text-[#4C1D95] border border-[#4C1D95] dark:bg-[#1C1C1C] dark:text-[#C9C5B9] dark:border-[#C9C5B9]/40">
                     MED • 12 PROBLEMS
                   </span>
-                  <TrendingUp className="w-4 h-4 text-acid" />
+                  <TrendingUp className="w-4 h-4 text-[#4C1D95] dark:text-[#A78BFA]" />
                 </div>
-                <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+                <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                   Aggregations & Stats
                 </h3>
-                <p className="font-mono text-xs text-ink/75 dark:text-neutral-300">
+                <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9]">
                   Aggregate with GROUP BY, HAVING, COUNT, SUM, and AVG.
                 </p>
               </div>
-              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-ink dark:text-acid">
+              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-[#4C1D95] dark:text-[#A78BFA]">
                 <span>Start Track</span>
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -573,23 +572,23 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             {/* Track 3: Joins */}
             <div 
               onClick={() => onNavigate('questions', 21)}
-              className="bg-white dark:bg-[#141f36] border-3 border-ink p-6 shadow-hard hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
+              className="bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-neutral-100 dark:bg-[#0b132b] border border-ink">
+                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#F3E8FF] text-[#4C1D95] border border-[#4C1D95] dark:bg-[#1C1C1C] dark:text-[#C9C5B9] dark:border-[#C9C5B9]/40">
                     MED • 14 PROBLEMS
                   </span>
-                  <Layers className="w-4 h-4 text-sky" />
+                  <Layers className="w-4 h-4 text-[#4C1D95] dark:text-[#A78BFA]" />
                 </div>
-                <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+                <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                   Relational Joins
                 </h3>
-                <p className="font-mono text-xs text-ink/75 dark:text-neutral-300">
+                <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9]">
                   Connect multiple tables with INNER, LEFT, CROSS & SELF JOINs.
                 </p>
               </div>
-              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-ink dark:text-acid">
+              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-[#4C1D95] dark:text-[#A78BFA]">
                 <span>Start Track</span>
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -598,23 +597,23 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             {/* Track 4: Window Functions */}
             <div 
               onClick={() => onNavigate('questions', 35)}
-              className="bg-white dark:bg-[#141f36] border-3 border-ink p-6 shadow-hard hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
+              className="bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] p-6 shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] hover:-translate-y-1.5 transition-all cursor-pointer flex flex-col justify-between space-y-4"
             >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-neutral-100 dark:bg-[#0b132b] border border-ink">
+                  <span className="font-mono text-[10px] font-black uppercase px-2 py-0.5 bg-[#F3E8FF] text-[#7E22CE] border border-[#7E22CE] dark:bg-[#1C1C1C] dark:text-[#C9C5B9] dark:border-[#C9C5B9]/40">
                     HARD • 14 PROBLEMS
                   </span>
-                  <Sparkles className="w-4 h-4 text-pink" />
+                  <Sparkles className="w-4 h-4 text-[#7C3AED] dark:text-[#A78BFA]" />
                 </div>
-                <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+                <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                   Window Functions & CTEs
                 </h3>
-                <p className="font-mono text-xs text-ink/75 dark:text-neutral-300">
+                <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9]">
                   Analytical RANK, DENSE_RANK, LEAD/LAG, and Common Table Expressions.
                 </p>
               </div>
-              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-ink dark:text-acid">
+              <div className="pt-2 flex items-center justify-between font-mono text-xs font-black text-[#4C1D95] dark:text-[#A78BFA]">
                 <span>Start Track</span>
                 <ChevronRight className="w-4 h-4" />
               </div>
@@ -628,46 +627,46 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* =========================================================================
           SECTION 5: HOW IT WORKS (3-STEP WORKFLOW)
           ========================================================================= */}
-      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-3 border-ink bg-white dark:bg-[#101a33]">
+      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 bg-[#F6F6F2] dark:bg-[#1C1C1C]">
         <div className="max-w-5xl mx-auto space-y-12">
           
           <div className="text-center space-y-3">
-            <h2 className="font-display font-black text-3xl sm:text-5xl text-ink dark:text-[#f0f4fc] uppercase tracking-tight">
+            <h2 className="font-display font-black text-3xl sm:text-5xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase tracking-tight">
               HOW SQUIDQL WORKS
             </h2>
-            <p className="font-mono text-sm sm:text-base text-ink/80 dark:text-neutral-300 max-w-lg mx-auto font-bold">
+            <p className="font-mono text-sm sm:text-base text-[#4A4A48] dark:text-[#C9C5B9] max-w-lg mx-auto font-bold">
               Three seamless steps from opening the site to mastering interview queries.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div className="p-6 bg-paper dark:bg-[#141f36] border-3 border-ink shadow-hard space-y-3">
-              <div className="font-display font-black text-4xl text-acid">01</div>
-              <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+            <div className="p-6 bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] transition-colors space-y-3">
+              <div className="font-display font-black text-4xl text-[#4C1D95] dark:text-[#A78BFA]">01</div>
+              <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                 Pick a Challenge
               </h3>
-              <p className="font-mono text-xs text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Select from 50+ real-world database problem prompts with explicit business criteria and schema descriptions.
               </p>
             </div>
 
-            <div className="p-6 bg-paper dark:bg-[#141f36] border-3 border-ink shadow-hard space-y-3">
-              <div className="font-display font-black text-4xl text-sky">02</div>
-              <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+            <div className="p-6 bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] transition-colors space-y-3">
+              <div className="font-display font-black text-4xl text-[#7C3AED] dark:text-[#C9C5B9]">02</div>
+              <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                 Write in Monaco IDE
               </h3>
-              <p className="font-mono text-xs text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Full-featured SQL editor with syntax coloring, autocompletion, shortcuts, and instant schema viewers.
               </p>
             </div>
 
-            <div className="p-6 bg-paper dark:bg-[#141f36] border-3 border-ink shadow-hard space-y-3">
-              <div className="font-display font-black text-4xl text-pink">03</div>
-              <h3 className="font-display font-black text-xl text-ink dark:text-white uppercase">
+            <div className="p-6 bg-white dark:bg-[#1C1C1C] border-3 border-[#1C1C1C] dark:border-[#C9C5B9] shadow-[4px_4px_0_0_#1C1C1C] dark:shadow-hard hover:border-[#4C1D95] dark:hover:border-[#A78BFA] transition-colors space-y-3">
+              <div className="font-display font-black text-4xl text-[#059669] dark:text-[#A78BFA]">03</div>
+              <h3 className="font-display font-black text-xl text-[#1C1C1C] dark:text-[#F4F4F0] uppercase">
                 Validate & Level Up
               </h3>
-              <p className="font-mono text-xs text-ink/80 dark:text-neutral-300 leading-relaxed font-bold">
+              <p className="font-mono text-xs text-[#4A4A48] dark:text-[#C9C5B9] leading-relaxed font-bold">
                 Compare row-level diffs with test cases, confirm your solution, and build up your problem-solving streak.
               </p>
             </div>
@@ -680,33 +679,33 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* =========================================================================
           SECTION 6: BOTTOM CALL TO ACTION BANNER
           ========================================================================= */}
-      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-3 border-ink bg-grain">
+      <section className="px-4 sm:px-8 py-16 sm:py-24 border-t-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 bg-grain">
         <div className="max-w-4xl mx-auto">
           
-          <div className="relative bg-[#060b17] text-white dark:bg-[#141f36] dark:text-[#f0f4fc] border-3 sm:border-4 border-ink dark:border-white p-8 sm:p-14 shadow-hard-lg dark:shadow-[8px_8px_0_0_#e8ff00] text-center space-y-6 overflow-hidden">
+          <div className="relative bg-white dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F4F4F0] border-3 sm:border-4 border-[#1C1C1C] dark:border-[#C9C5B9] p-8 sm:p-14 shadow-[8px_8px_0_0_#4C1D95] dark:shadow-[8px_8px_0_0_#A78BFA] text-center space-y-6 overflow-hidden">
             
             {/* Corner Decorative Grid Accent */}
-            <div className="absolute top-0 right-0 w-24 h-24 bg-acid/10 border-b-2 border-l-2 border-ink dark:border-white/20 transform rotate-45 translate-x-12 -translate-y-12 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-[#4C1D95]/10 dark:bg-[#A78BFA]/10 border-b-2 border-l-2 border-[#1C1C1C]/20 dark:border-[#C9C5B9]/20 transform rotate-45 translate-x-12 -translate-y-12 pointer-events-none" />
 
             {/* Badge */}
             <div 
-              className="inline-flex items-center gap-2 bg-acid border-2 border-ink px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-hard-xs !text-[#0a0a0a]"
+              className="inline-flex items-center gap-2 bg-[#F3E8FF] text-[#4C1D95] dark:bg-[#581C87] dark:text-[#F4F4F0] border-2 border-[#1C1C1C] dark:border-[#A78BFA] px-3.5 py-1 font-mono text-xs font-black uppercase tracking-wider shadow-[3px_3px_0_0_#1C1C1C] dark:shadow-hard-xs"
             >
-              <Sparkles className="w-3.5 h-3.5 !fill-[#0a0a0a] !text-[#0a0a0a] !stroke-[#0a0a0a]" />
-              <span className="!text-[#0a0a0a] font-black">ZERO SETUP REQUIRED</span>
+              <Sparkles className="w-3.5 h-3.5 fill-current stroke-current" />
+              <span>ZERO SETUP REQUIRED</span>
             </div>
 
             {/* Display Headline */}
-            <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight text-white dark:text-[#f0f4fc]">
+            <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl uppercase tracking-tight leading-tight text-[#1C1C1C] dark:text-[#F4F4F0]">
               <span>STOP READING ABOUT SQL.</span>
               <br />
-              <span className="inline-block text-acid underline decoration-4 decoration-acid/60 mt-1">
+              <span className="inline-block text-[#4C1D95] dark:text-[#A78BFA] underline decoration-4 decoration-[#4C1D95]/60 dark:decoration-[#A78BFA]/60 mt-1">
                 START WRITING IT.
               </span>
             </h2>
 
             {/* Subtitle */}
-            <p className="font-mono text-sm sm:text-base text-neutral-300 dark:text-neutral-300 max-w-xl mx-auto font-bold leading-relaxed">
+            <p className="font-mono text-sm sm:text-base text-[#4A4A48] dark:text-[#C9C5B9] max-w-xl mx-auto font-bold leading-relaxed">
               Open the editor, run queries against real tables in milliseconds, and build the problem-solving reflexes needed for technical interviews.
             </p>
 
@@ -714,14 +713,14 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             <div className="pt-2">
               <button
                 onClick={() => onNavigate('questions')}
-                className="btn-press bg-acid hover:bg-white h-14 sm:h-16 px-8 sm:px-12 border-3 border-ink font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-hard inline-flex items-center gap-3 cursor-pointer transition-colors !text-[#0a0a0a]"
+                className="btn-press bg-[#4C1D95] dark:bg-[#581C87] text-white hover:bg-[#3B0764] h-14 sm:h-16 px-8 sm:px-12 border-3 border-[#1C1C1C] dark:border-[#A78BFA] font-display font-black text-sm sm:text-base uppercase tracking-wider shadow-[5px_5px_0_0_#1C1C1C] dark:shadow-hard inline-flex items-center gap-3 cursor-pointer transition-colors"
               >
-                <span className="font-black !text-[#0a0a0a]">OPEN SQL IDE NOW</span>
-                <ArrowRight className="w-5 h-5 !stroke-[#0a0a0a] !text-[#0a0a0a]" />
+                <span>OPEN SQL IDE NOW</span>
+                <ArrowRight className="w-5 h-5 stroke-[3]" />
               </button>
             </div>
 
-            <div className="font-mono text-[11px] text-neutral-400 dark:text-neutral-400 font-bold uppercase tracking-wider pt-2">
+            <div className="font-mono text-[11px] text-[#6B7280] dark:text-[#C9C5B9] font-bold uppercase tracking-wider pt-2">
               50 PROBLEMS • ONE EDITOR • NO ACCOUNT NEEDED TO PRACTICE
             </div>
           </div>
@@ -732,28 +731,28 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
       {/* =========================================================================
           SECTION 7: MINIMAL FOOTER
           ========================================================================= */}
-      <footer className="px-4 sm:px-8 py-8 border-t-3 border-ink bg-paper dark:bg-[#060b17] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-ink/70 dark:text-neutral-400">
+      <footer className="px-4 sm:px-8 py-8 border-t-2 border-[#1C1C1C] dark:border-[#C9C5B9]/30 bg-white dark:bg-[#1C1C1C] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs font-bold text-[#4A4A48] dark:text-[#C9C5B9]">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 bg-acid border border-ink" />
-          <span className="font-black text-ink dark:text-white">SQUIDQL</span>
+          <span className="w-2.5 h-2.5 bg-[#4C1D95] dark:bg-[#A78BFA] border border-[#1C1C1C]" />
+          <span className="font-black text-[#1C1C1C] dark:text-[#F4F4F0]">SQUIDQL</span>
           <span>— Write it. Run it. Prove it.</span>
         </div>
         <div className="flex items-center gap-6">
           <button 
             onClick={() => onNavigate('questions')} 
-            className="hover:text-ink dark:hover:text-white transition-colors cursor-pointer"
+            className="hover:text-[#4C1D95] dark:hover:text-[#A78BFA] transition-colors cursor-pointer"
           >
             Problems
           </button>
           <button 
             onClick={() => onNavigate('resources')} 
-            className="hover:text-ink dark:hover:text-white transition-colors cursor-pointer"
+            className="hover:text-[#4C1D95] dark:hover:text-[#A78BFA] transition-colors cursor-pointer"
           >
             Curriculum
           </button>
           <button 
             onClick={() => onNavigate('profile')} 
-            className="hover:text-ink dark:hover:text-white transition-colors cursor-pointer"
+            className="hover:text-[#4C1D95] dark:hover:text-[#A78BFA] transition-colors cursor-pointer"
           >
             Profile
           </button>

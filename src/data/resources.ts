@@ -22,7 +22,7 @@ export const SQL_RESOURCES: SqlResource[] = [
     destination: 'https://leetcode.com/studyplan/top-sql-50/',
     startingQuestionId: 1,
     tagline: '★ RECOMMENDED START',
-    badgeColor: '#e8ff00',
+    badgeColor: '#4C1D95',
   },
   {
     id: 'hackerrank-sql',
@@ -33,7 +33,7 @@ export const SQL_RESOURCES: SqlResource[] = [
     action: 'Explore HackerRank',
     destination: 'https://www.hackerrank.com/domains/sql',
     startingQuestionId: 1,
-    badgeColor: '#5ec8ff',
+    badgeColor: '#C9C5B9',
   },
   {
     id: 'datalemur-sql',
@@ -44,7 +44,7 @@ export const SQL_RESOURCES: SqlResource[] = [
     action: 'Explore DataLemur',
     destination: 'https://datalemur.com/questions',
     startingQuestionId: 21,
-    badgeColor: '#ff5e8a',
+    badgeColor: '#4C1D95',
   },
   {
     id: 'stratascratch',
@@ -55,7 +55,7 @@ export const SQL_RESOURCES: SqlResource[] = [
     action: 'Explore StrataScratch',
     destination: 'https://www.stratascratch.com/',
     startingQuestionId: 41,
-    badgeColor: '#ffb800',
+    badgeColor: '#C9C5B9',
   },
   {
     id: 'sqlzoo',
@@ -66,7 +66,7 @@ export const SQL_RESOURCES: SqlResource[] = [
     action: 'Explore SQLZoo',
     destination: 'https://sqlzoo.net/',
     startingQuestionId: 1,
-    badgeColor: '#5ec8ff',
+    badgeColor: '#4C1D95',
   },
   {
     id: 'w3schools-sql',
@@ -77,6 +77,6 @@ export const SQL_RESOURCES: SqlResource[] = [
     action: 'Explore SQL Exercises',
     destination: 'https://www.w3schools.com/sql/sql_exercises.asp',
     startingQuestionId: 1,
-    badgeColor: '#a8ff53',
+    badgeColor: '#C9C5B9',
   },
 ];

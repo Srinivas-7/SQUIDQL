@@ -133,7 +133,7 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen text-ink font-mono selection:bg-acid selection:text-ink antialiased flex flex-col relative overflow-x-hidden bg-paper dark:bg-[#0b132b]">
+    <div className="min-h-screen bg-[#F4F4F0] dark:bg-[#1C1C1C] text-[#1C1C1C] dark:text-[#F4F4F0] font-mono selection:bg-[#4C1D95] selection:text-[#F4F4F0] antialiased flex flex-col relative overflow-x-hidden transition-colors duration-150">
       {/* Shared Minimal Navigation */}
         <Navbar
           currentPage={currentPage}

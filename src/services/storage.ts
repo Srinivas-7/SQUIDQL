@@ -160,11 +160,11 @@ export function getQueryDraft(challengeId: number, isGuest = false): string | un
 
 export function calculateConceptMastery(progress: UserProgress): ConceptMastery[] {
   const conceptsMap: Record<string, { total: number; completed: number; color: string }> = {
-    'AGGREGATIONS': { total: 0, completed: 0, color: '#06B6D4' },
-    'GROUP BY & HAVING': { total: 0, completed: 0, color: '#38BDF8' },
-    'JOINS & RELATIONS': { total: 0, completed: 0, color: '#818CF8' },
-    'SUBQUERIES': { total: 0, completed: 0, color: '#A855F7' },
-    'RANKING & ADVANCED': { total: 0, completed: 0, color: '#EC4899' },
+    'AGGREGATIONS': { total: 0, completed: 0, color: '#4C1D95' },
+    'GROUP BY & HAVING': { total: 0, completed: 0, color: '#A78BFA' },
+    'JOINS & RELATIONS': { total: 0, completed: 0, color: '#4C1D95' },
+    'SUBQUERIES': { total: 0, completed: 0, color: '#C9C5B9' },
+    'RANKING & ADVANCED': { total: 0, completed: 0, color: '#A78BFA' },
   };
 
   CHALLENGES.forEach((c) => {

@@ -8,27 +8,31 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#f5f3ea',
-        ink: '#0a0a0a',
-        acid: {
-          DEFAULT: '#e8ff00',
-          hover: '#f0ff33',
+        // Approved 5-Color Brand Palette
+        charcoal: {
+          DEFAULT: '#1C1C1C',
+          surface: '#1C1C1C',
+          elevated: '#242424',
         },
-        pink: {
-          DEFAULT: '#ff5e8a',
-          hover: '#ff759c',
+        indigo: {
+          DEFAULT: '#4C1D95',
+          hover: '#3B0764',
+          subtle: 'rgba(76, 29, 149, 0.15)',
         },
-        sky: {
-          DEFAULT: '#5ec8ff',
-          hover: '#7cd3ff',
+        violet: {
+          DEFAULT: '#A78BFA',
+          hover: '#9065f7',
+          subtle: 'rgba(167, 139, 250, 0.15)',
         },
-        brutal: {
-          paper: '#f5f3ea',
-          ink: '#0a0a0a',
-          acid: '#e8ff00',
-          pink: '#ff5e8a',
-          sky: '#5ec8ff',
-        }
+        warmwhite: {
+          DEFAULT: '#F4F4F0',
+          hover: '#e8e8e3',
+        },
+        warmsilver: {
+          DEFAULT: '#C9C5B9',
+          muted: 'rgba(201, 197, 185, 0.6)',
+          border: 'rgba(201, 197, 185, 0.3)',
+        },
       },
       fontFamily: {
         arcade: ['"Arcade Classic"', 'monospace', 'sans-serif'],
@@ -40,16 +44,21 @@ export default {
         mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
-        'hard-xs': '2px 2px 0 0 #0a0a0a',
-        'hard-sm': '4px 4px 0 0 #0a0a0a',
-        'hard': '6px 6px 0 0 #0a0a0a',
-        'hard-lg': '10px 10px 0 0 #0a0a0a',
-        'hard-xl': '14px 14px 0 0 #0a0a0a',
-        'hard-acid': '6px 6px 0 0 #e8ff00',
-        'hard-acid-lg': '10px 10px 0 0 #e8ff00',
-        'hard-pink': '6px 6px 0 0 #ff5e8a',
-        'hard-sky': '6px 6px 0 0 #5ec8ff',
-        'hard-paper': '6px 6px 0 0 #f5f3ea',
+        'brutal': '4px 4px 0 0 #1C1C1C',
+        'brutal-sm': '2px 2px 0 0 #1C1C1C',
+        'brutal-lg': '8px 8px 0 0 #1C1C1C',
+        'brutal-indigo': '4px 4px 0 0 #4C1D95',
+        'brutal-violet': '4px 4px 0 0 #A78BFA',
+        'brutal-silver': '4px 4px 0 0 rgba(201, 197, 185, 0.35)',
+        'hard-xs': '2px 2px 0 0 currentColor',
+        'hard-sm': '3px 3px 0 0 currentColor',
+        'hard': '5px 5px 0 0 currentColor',
+        'hard-lg': '8px 8px 0 0 currentColor',
+        'hard-xl': '12px 12px 0 0 currentColor',
+        'hard-indigo': '5px 5px 0 0 #4C1D95',
+        'hard-violet': '5px 5px 0 0 #A78BFA',
+        'hard-silver': '5px 5px 0 0 #C9C5B9',
+        'hard-charcoal': '5px 5px 0 0 #1C1C1C',
       },
       borderWidth: {
         '2': '2px',

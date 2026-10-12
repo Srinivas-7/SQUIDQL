@@ -20,10 +20,23 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700;800&family=Pixelify+Sans:wght@400..700&display=swap"
     rel="stylesheet">
+  <!-- Theme Initialization to prevent flash of wrong mode -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('squidql_theme');
+        var theme = (saved === 'light' || saved === 'dark') ? saved : 'dark';
+        document.documentElement.classList.add(theme);
+        document.documentElement.classList.remove(theme === 'dark' ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {}
+    })();
+  </script>
 </head>
 
 <body
-  class="bg-[#f5f3ea] text-[#0a0a0a] antialiased selection:bg-[#e8ff00] selection:text-[#0a0a0a] overflow-x-hidden min-h-screen font-sans">
+  class="bg-[#F4F4F0] text-[#1C1C1C] dark:bg-[#1C1C1C] dark:text-[#F4F4F0] antialiased selection:bg-[#4C1D95] selection:text-[#F4F4F0] overflow-x-hidden min-h-screen font-sans">
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

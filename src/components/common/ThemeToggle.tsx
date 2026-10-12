@@ -15,22 +15,19 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ className = '' }) => {
       onClick={toggleTheme}
       type="button"
       className={`
-        btn-press w-9 h-9 flex items-center justify-center border-3 border-ink
-        ${isDark ? 'bg-acid hover:bg-white !text-[#0a0a0a]' : 'bg-white text-ink hover:bg-acid'}
-        transition-colors cursor-pointer select-none shadow-hard-xs
+        btn-press w-9 h-9 flex items-center justify-center border-2 sm:border-3
+        bg-[#F3E8FF] text-[#4C1D95] border-[#1C1C1C] hover:bg-[#4C1D95] hover:text-white hover:border-[#1C1C1C]
+        dark:bg-[#1C1C1C] dark:text-[#A78BFA] dark:border-[#C9C5B9]/40 dark:hover:bg-[#581C87] dark:hover:text-[#F4F4F0] dark:hover:border-[#A78BFA]
+        transition-colors cursor-pointer select-none
         ${className}
       `}
-      title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      title={isDark ? 'Switch to Light Theme' : 'Switch to Dark Theme'}
       aria-label="Toggle Theme"
-      style={isDark ? { backgroundColor: '#e8ff00', color: '#0a0a0a' } : undefined}
     >
       {isDark ? (
-        <Sun 
-          className="w-4 h-4 stroke-[2.5] !text-[#0a0a0a] !stroke-[#0a0a0a]" 
-          style={{ color: '#0a0a0a', stroke: '#0a0a0a' }} 
-        />
+        <Sun className="w-4 h-4 stroke-[2.5] text-[#A78BFA]" />
       ) : (
-        <Moon className="w-4 h-4 stroke-[2.5] text-ink fill-ink/20" />
+        <Moon className="w-4 h-4 stroke-[2.5] text-[#4C1D95] fill-[#4C1D95]/20" />
       )}
     </button>
   );
